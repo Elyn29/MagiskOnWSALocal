@@ -1,0 +1,27 @@
+name: My GitHub Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run My Command
+      run: |
+        # Place your command here
+        # Example: python my_script.py
+
+      # If the command exits with code 5, consider it as successful and continue
+      continue-on-error: true
+
+    - name: Check Exit Code
+      run: echo "Exit Code: $?"
+
+    # Add more steps or actions as needed based on your workflow
